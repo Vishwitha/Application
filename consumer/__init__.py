@@ -25,7 +25,8 @@ consumer_app.config.consumer = KafkaConsumer(consumer_app.config["TOPIC_NAME"],
                                              group_id=consumer_app.config["GROUP_ID"],
                                              auto_offset_reset='earliest')
 
-# message = consumer_app.config.consumer.poll()
+for msg in consumer_app.config.consumer:
+    print(msg)
 
 # kafkaMessageConsumer().poll()
 a = kafkaMessageConsumer()

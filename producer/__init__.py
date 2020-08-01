@@ -10,11 +10,11 @@ producer_app = Flask(__name__)
 
 conf = Config()
 producer_app.config.from_object(conf)
-# producer_app.config.admin_client = KafkaAdminClient(bootstrap_servers="localhost:9092")
-# admin_client = KafkaAdminClient(bootstrap_servers="localhost:9092",api_version=(0,9))
+# producer_app.config.admin_client = KafkaAdminClient(bootstrap_servers="127.0.0.1:9092")
+# admin_client = KafkaAdminClient(bootstrap_servers="127.0.0.1:9092", api_version=(1,0))
 # topic_list = []
-# topic_list.append(NewTopic(name=producer_app.config["TOPIC_NAME"], num_partitions=producer_app.config["NO_OF_PARTITIONS"], replication_factor=1))
+# # topic_list.append(NewTopic(name=producer_app.config["TOPIC_NAME"], num_partitions=producer_app.config["NO_OF_PARTITIONS"], replication_factor=1))
 # producer_app.config.admin_client.create_topics(new_topics=topic_list, validate_only=False,)
-producer_app.config.producer = KafkaProducer(bootstrap_servers=producer_app.config["HOST_KAFKA"],
+producer_app.config.producer = KafkaProducer(bootstrap_servers="127.0.0.1:9092",
                                               value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 from producer import views
