@@ -1,4 +1,4 @@
 from consumer import consumer_app
-if __name__ == '__main__':
 
-    consumer_app.run(port=8081)
+if __name__ == '__main__':
+    consumer_app.run(host="0.0.0.0",port=8081, debug=True)

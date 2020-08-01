@@ -1,0 +1,13 @@
+FROM python:3.8-alpine
+
+WORKDIR /Application
+
+ADD ./consumer ./consumer
+COPY ./config.py .
+COPY ./consumer_run.py .
+
+RUN pip install -r ./consumer/requirements.txt
+EXPOSE 8081
+
+ENTRYPOINT ["python"]
+CMD ["consumer_run.py"]

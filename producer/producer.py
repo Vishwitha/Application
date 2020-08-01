@@ -1,6 +1,9 @@
+import threading
+import time
+import uuid
 
 from producer import producer_app
-import uuid
+
 
 class KafkaPublisher:
 
@@ -16,6 +19,12 @@ class KafkaPublisher:
 
         :param message
         """
-        producer_app.config.producer.send(producer_app.config["TOPIC_NAME"], message, headers=[('key', uuid.uuid4().bytes)])
-        # threading.Timer(5, self.push_message(message)).start()
-        print("finished")
+        x = threading.Thread(target=self.send_message, args=(message,))
+        x.start()
+
+    def send_message(self, message):
+        while True:
+            producer_app.config.producer.send(producer_app.config["TOPIC_NAME"], message,
+                                              headers=[('key', uuid.uuid4().bytes)])
+            time.sleep(3)
+            print("message sent")

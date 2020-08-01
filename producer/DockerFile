@@ -1,0 +1,13 @@
+FROM python:3.8-alpine
+
+WORKDIR /Application
+
+ADD ./producer ./producer
+COPY ./config.py .
+COPY ./producer_run.py .
+
+RUN pip install -r ./producer/requirements.txt
+EXPOSE 5000
+
+ENTRYPOINT ["python"]
+CMD ["producer_run.py"]
