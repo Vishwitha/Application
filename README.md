@@ -1,15 +1,4 @@
 # Application
-structure:
-Application:
-	Producer 
-	Consumer
-	producer_run.py
-	consumer_run.py
-	deployments
-	docker-compose.yaml
-	config.py
-	Makefile
-	
 
 Application : 
 This directory consists of the following files and folders.
