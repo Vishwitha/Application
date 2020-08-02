@@ -2,6 +2,7 @@
 
 Application : 
 This directory consists of the following files and folders.
+
 		 1)Producer and Consumer Application
 		 2)docker-compose.yaml to use for dev 
 		 3)deployment.yaml file in the folder "deployments" for minikube deployment
@@ -9,6 +10,7 @@ This directory consists of the following files and folders.
 		 
 
 For development environment:
+
 	1)	use the cmd : make build
 	[Make file helps in building the images for producer and consumer application using respective docker file
 	which is in its directory]
@@ -21,8 +23,8 @@ For development environment:
 	
 
 Deployment :
-
 prerequisites:
+
 	1) Minikube installed and kubectl installed 
 	[link to access :https://kubernetes.io/docs/tasks/tools/install-minikube/]
 	
