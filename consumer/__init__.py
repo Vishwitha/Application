@@ -20,7 +20,7 @@ consumer_app.config.cursor = consumer_app.config.db_connection.cursor()
 consumer_app.config.cursor.execute("CREATE DATABASE IF NOT EXISTS " + consumer_app.config["DB_NAME"])
 
 consumer_app.config.cursor.execute("USE " + consumer_app.config["DB_NAME"] + "")
-consumer_app.config.cursor.execute("CREATE TABLE IF NOT EXISTS kafka_table (MESS_ID varchar(36) NOT NULL PRIMARY KEY, "
+consumer_app.config.cursor.execute("CREATE TABLE IF NOT EXISTS "+ consumer_app.config["DB_TABLE"]+" (MESS_ID varchar(36) NOT NULL PRIMARY KEY, "
                                    "TOPIC varchar(36) NOT NULL)")
 consumer_app.config.consumer = KafkaConsumer(consumer_app.config["TOPIC_NAME"],
                                              bootstrap_servers=consumer_app.config["HOST_KAFKA"],
