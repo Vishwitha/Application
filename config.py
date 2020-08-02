@@ -8,4 +8,4 @@ class Config(object):
     TOPIC_NAME = "messages"
     NO_OF_PARTITIONS = 2
     GROUP_ID = "my_consumer"
-    DB_TABLE = "message"
+    DB_TABLE = "message_logs"
