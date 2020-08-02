@@ -24,14 +24,14 @@ services:
     depends_on:
       - zookeeper
   producer:
-    image: my_producer
+    image: vishwithan/dockerhub:my_producer
     ports:
       - "5000:5000"
     container_name: producer_app
     depends_on:
       - kafka
   consumer:
-    image: my_consumer
+    image: vishwithan/dockerhub:my_consumer
     ports:
       - "8081:8081"
       - "5001:5000"
