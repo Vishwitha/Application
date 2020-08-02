@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-producer
+spec:
+  selector:
+    matchLabels:
+      app: my-producer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-producer
+    spec:
+      containers:
+      - args:
+        - producer_run.py
+        command:
+        - python
+        name: my-producer
+        image: vishwithan/dockerhub:my_producer
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: pod-port
+          protocol: TCP

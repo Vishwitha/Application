@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-consumer
+spec:
+  selector:
+    matchLabels:
+      app: my-consumer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-consumer
+    spec:
+      containers:
+      - args:
+        - consumer_run.py
+        command:
+        - python
+        name: my-consumer
+        image: vishwithan/dockerhub:my_consumer
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: pod-port
+          protocol: TCP
