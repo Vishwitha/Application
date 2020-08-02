@@ -4,10 +4,14 @@ metadata:
   name: my-consumer
 spec:
   ports:
-    - port: 8081
+    - name: www
+       nodePort: 1002
+       port: 80
+       protocol: TCP
+       targetPort: 8081
   selector:
     app: my-consumer
-  clusterIP: None
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment

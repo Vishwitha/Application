@@ -4,7 +4,11 @@ metadata:
   name: my-producer
 spec:
   ports:
-    - port: 5000
+    - name: www
+        nodePort: 1001
+        port: 80
+        protocol: TCP
+        targetPort: 5000
   selector:
     app: my-producer
   clusterIP: None
