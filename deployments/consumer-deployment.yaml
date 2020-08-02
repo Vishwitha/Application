@@ -1,3 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-consumer
+spec:
+  ports:
+    - port: 8081
+  selector:
+    app: my-consumer
+  clusterIP: None
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
