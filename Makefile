@@ -6,10 +6,6 @@ build:
 	docker build -t my_producer -f ./producer/DockerFile .
 	docker build -t my_consumer -f ./consumer/DockerFile .
 
-.PHONY: setup
-setup:
-	python setup.py
-
 .PHONY: start
 start:
 	docker-compose down

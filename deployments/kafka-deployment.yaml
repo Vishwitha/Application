@@ -32,6 +32,8 @@ spec:
               value: kafka
             - name: KAFKA_ZOOKEEPER_CONNECT
               value: zookeeper
+            - name: KAFKA_CREATE_TOPICS
+              value: "messages:2:2"
           ports:
             - containerPort: 9092
               name: kafka
