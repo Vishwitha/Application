@@ -20,18 +20,18 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka # docker-machine ip
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "Item1:2:2"
+      KAFKA_CREATE_TOPICS: "messages:2:2"
     depends_on:
       - zookeeper
   producer:
-    image: vishwithan/dockerhub:my_producer
+    image: my_producer
     ports:
       - "5000:5000"
     container_name: producer_app
     depends_on:
       - kafka
   consumer:
-    image: vishwithan/dockerhub:my_consumer
+    image: my_consumer
     ports:
       - "8081:8081"
       - "5001:5000"
