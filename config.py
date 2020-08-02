@@ -9,4 +9,3 @@ class Config(object):
     NO_OF_PARTITIONS = 2
     GROUP_ID = "my_consumer"
     DB_TABLE = "message"
-
