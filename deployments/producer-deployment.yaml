@@ -5,13 +5,13 @@ metadata:
 spec:
   ports:
     - name: www
-      nodePort: 1001
+      nodePort: 32765
       port: 80
       protocol: TCP
       targetPort: 5000
   selector:
     app: my-producer
-  clusterIP: None
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment

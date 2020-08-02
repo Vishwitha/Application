@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
     - name: www
-      nodePort: 1002
+      nodePort: 32766
       port: 80
       protocol: TCP
       targetPort: 8081
