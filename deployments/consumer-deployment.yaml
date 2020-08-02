@@ -5,10 +5,10 @@ metadata:
 spec:
   ports:
     - name: www
-       nodePort: 1002
-       port: 80
-       protocol: TCP
-       targetPort: 8081
+      nodePort: 1002
+      port: 80
+      protocol: TCP
+      targetPort: 8081
   selector:
     app: my-consumer
   type: NodePort
