@@ -14,7 +14,7 @@ class KafkaMessageConsumer:
         consumer_app.config.consumer.subscribe(topics=[consumer_app.config["TOPIC_NAME"]])
         for msg in consumer_app.config.consumer:
             print(msg)
-            push_to_db_query = "INSERT INTO " + consumer_app.config["DB_TABLE"] + "(MESS_ID, TOPIC) VALUES ('" + \
+            push_to_db_query = "INSERT IGNORE INTO " + consumer_app.config["DB_TABLE"] + "(MESS_ID, TOPIC) VALUES ('" + \
                                str(uuid.UUID(bytes=msg.headers[0][1])) + "', '" + msg.topic + "')"
             consumer_app.config.cursor.execute(push_to_db_query)
             consumer_app.config.db_connection.commit()
